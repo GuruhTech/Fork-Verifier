@@ -41,27 +41,36 @@
 }
 
 :root {
+  /* Softer emerald green — not neon, not lime */
+  --green: #4ade80;
+  --green-dim: rgba(74, 222, 128, 0.7);
+  --green-glow: rgba(74, 222, 128, 0.25);
+  --purple: #a855f7;
+  --purple-dim: rgba(168, 85, 247, 0.7);
+  --purple-glow: rgba(168, 85, 247, 0.2);
+
   --background: 220 20% 6%;
   --foreground: 0 0% 92%;
-  --border: 137 60% 20%;
+  --border: 145 40% 22%;
   --card: 220 25% 8%;
   --card-foreground: 0 0% 92%;
-  --card-border: 137 60% 20%;
+  --card-border: 145 40% 22%;
   --popover: 220 25% 8%;
   --popover-foreground: 0 0% 92%;
-  --popover-border: 137 60% 20%;
-  --primary: 137 100% 50%;
+  --popover-border: 145 40% 22%;
+  /* Softer emerald — HSL 145 60% 60% */
+  --primary: 145 60% 60%;
   --primary-foreground: 220 20% 4%;
-  --secondary: 270 90% 60%;
+  --secondary: 270 72% 65%;
   --secondary-foreground: 220 20% 4%;
   --muted: 220 20% 14%;
   --muted-foreground: 220 10% 55%;
-  --accent: 270 90% 60%;
+  --accent: 270 72% 65%;
   --accent-foreground: 220 20% 4%;
   --destructive: 0 84% 60%;
   --destructive-foreground: 220 20% 4%;
   --input: 220 20% 12%;
-  --ring: 137 100% 50%;
+  --ring: 145 60% 60%;
 
   --app-font-sans: 'Orbitron', sans-serif;
   --app-font-mono: 'JetBrains Mono', monospace;
@@ -72,9 +81,6 @@
   --muted-border: hsl(var(--muted));
   --accent-border: hsl(var(--accent));
   --destructive-border: hsl(var(--destructive));
-
-  --neon-green: #00ff41;
-  --neon-purple: #9b30ff;
 }
 
 @layer base {

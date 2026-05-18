@@ -12,6 +12,8 @@ tags:
     description: Health operations
   - name: verify
     description: Fork verification
+  - name: stats
+    description: Repository statistics
 paths:
   /healthz:
     get:
@@ -26,6 +28,25 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+  /fork-count:
+    get:
+      operationId: getForkCount
+      tags: [stats]
+      summary: Get fork count
+      description: Returns the current number of forks for the ULTRA-GURU repo
+      responses:
+        "200":
+          description: Fork count
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ForkCountResult"
+        "500":
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
   /verify-fork:
     post:
       operationId: verifyFork
@@ -92,6 +113,14 @@ components:
         redirectUrl:
           type: ["string", "null"]
           description: Heroku deploy URL to redirect to if verified
+    ForkCountResult:
+      type: object
+      required:
+        - count
+      properties:
+        count:
+          type: integer
+          description: Number of forks on GuruhTech/ULTRA-GURU
     ErrorResponse:
       type: object
       required:

@@ -18,6 +18,15 @@ export const HealthCheckResponse = zod.object({
 
 
 /**
+ * Returns the current number of forks for the ULTRA-GURU repo
+ * @summary Get fork count
+ */
+export const GetForkCountResponse = zod.object({
+  "count": zod.number().describe('Number of forks on GuruhTech\/ULTRA-GURU')
+})
+
+
+/**
  * Check if a GitHub user has forked the ULTRA-GURU repo
  * @summary Verify GitHub fork
  */

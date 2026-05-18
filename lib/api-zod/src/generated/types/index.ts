@@ -9,4 +9,5 @@
 export * from './errorResponse';
 export * from './forkCheckInput';
 export * from './forkCheckResult';
+export * from './forkCountResult';
 export * from './healthStatus';

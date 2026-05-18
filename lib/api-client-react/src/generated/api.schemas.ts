@@ -33,6 +33,11 @@ export interface ForkCheckResult {
   redirectUrl?: string | null;
 }
 
+export interface ForkCountResult {
+  /** Number of forks on GuruhTech/ULTRA-GURU */
+  count: number;
+}
+
 export interface ErrorResponse {
   error: string;
 }

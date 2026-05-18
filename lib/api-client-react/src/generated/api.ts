@@ -23,6 +23,7 @@ import type {
   ErrorResponse,
   ForkCheckInput,
   ForkCheckResult,
+  ForkCountResult,
   HealthStatus
 } from './api.schemas';
 
@@ -104,6 +105,84 @@ export function useHealthCheck<TData = Awaited<ReturnType<typeof healthCheck>>, 
  ):  UseQueryResult<TData, TError> & { queryKey: QueryKey } {
 
   const queryOptions = getHealthCheckQueryOptions(options)
+
+  const query = useQuery(queryOptions) as  UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  return { ...query, queryKey: queryOptions.queryKey };
+}
+
+
+
+
+
+
+
+export const getGetForkCountUrl = () => {
+
+
+
+
+  return `/api/fork-count`
+}
+
+/**
+ * Returns the current number of forks for the ULTRA-GURU repo
+ * @summary Get fork count
+ */
+export const getForkCount = async ( options?: RequestInit): Promise<ForkCountResult> => {
+
+  return customFetch<ForkCountResult>(getGetForkCountUrl(),
+  {
+    ...options,
+    method: 'GET'
+
+
+  }
+);}
+
+
+
+
+
+export const getGetForkCountQueryKey = () => {
+    return [
+    `/api/fork-count`
+    ] as const;
+    }
+
+
+export const getGetForkCountQueryOptions = <TData = Awaited<ReturnType<typeof getForkCount>>, TError = ErrorType<ErrorResponse>>( options?: { query?:UseQueryOptions<Awaited<ReturnType<typeof getForkCount>>, TError, TData>, request?: SecondParameter<typeof customFetch>}
+) => {
+
+const {query: queryOptions, request: requestOptions} = options ?? {};
+
+  const queryKey =  queryOptions?.queryKey ?? getGetForkCountQueryKey();
+
+
+
+    const queryFn: QueryFunction<Awaited<ReturnType<typeof getForkCount>>> = ({ signal }) => getForkCount({ signal, ...requestOptions });
+
+
+
+
+
+   return  { queryKey, queryFn, ...queryOptions} as UseQueryOptions<Awaited<ReturnType<typeof getForkCount>>, TError, TData> & { queryKey: QueryKey }
+}
+
+export type GetForkCountQueryResult = NonNullable<Awaited<ReturnType<typeof getForkCount>>>
+export type GetForkCountQueryError = ErrorType<ErrorResponse>
+
+
+/**
+ * @summary Get fork count
+ */
+
+export function useGetForkCount<TData = Awaited<ReturnType<typeof getForkCount>>, TError = ErrorType<ErrorResponse>>(
+  options?: { query?:UseQueryOptions<Awaited<ReturnType<typeof getForkCount>>, TError, TData>, request?: SecondParameter<typeof customFetch>}
+
+ ):  UseQueryResult<TData, TError> & { queryKey: QueryKey } {
+
+  const queryOptions = getGetForkCountQueryOptions(options)
 
   const query = useQuery(queryOptions) as  UseQueryResult<TData, TError> & { queryKey: QueryKey };
 
