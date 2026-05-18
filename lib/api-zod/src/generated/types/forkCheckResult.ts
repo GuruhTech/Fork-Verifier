@@ -5,17 +5,6 @@
  * ULTRA GURU Fork Verifier API
  * OpenAPI spec version: 0.1.0
  */
-export interface HealthStatus {
-  status: string;
-}
-
-export interface ForkCheckInput {
-  /**
-     * GitHub username to check
-     * @minLength 1
-     */
-  username: string;
-}
 
 export interface ForkCheckResult {
   /** Whether the user has forked the repo */
@@ -32,8 +21,3 @@ export interface ForkCheckResult {
      */
   redirectUrl?: string | null;
 }
-
-export interface ErrorResponse {
-  error: string;
-}
-
