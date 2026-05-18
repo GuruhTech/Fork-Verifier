@@ -50,60 +50,50 @@
 }
 
 :root {
-  --button-outline: rgba(255,255,255, .10);
-  --badge-outline: rgba(255,255,255, .05);
+  --button-outline: rgba(57, 255, 20, 0.12);
+  --badge-outline: rgba(57, 255, 20, 0.06);
 
   --opaque-button-border-intensity: 9;
 
-  --elevate-1: rgba(255,255,255, .04);
-  --elevate-2: rgba(255,255,255, .09);
+  --elevate-1: rgba(255, 255, 255, 0.03);
+  --elevate-2: rgba(255, 255, 255, 0.07);
 
-  /* Deep Midnight Blue / Neon Cyan Theme - Default to Dark */
-  --background: 220 40% 5%;
-  --foreground: 186 20% 90%;
-  --border: 186 50% 15%;
-  
-  --card: 220 40% 7%;
-  --card-foreground: 186 20% 90%;
-  --card-border: 186 50% 15%;
-  
-  --popover: 220 40% 7%;
-  --popover-foreground: 186 20% 90%;
-  --popover-border: 186 50% 15%;
+  /* Gunmetal Steel / Neon Green + Purple Theme */
+  --background: 220 18% 8%;
+  --foreground: 140 10% 88%;
+  --border: 140 30% 18%;
 
-  --primary: 186 100% 50%; /* Electric Cyan */
-  --primary-foreground: 220 40% 5%; /* Dark for contrast */
-  
-  --secondary: 220 40% 15%;
-  --secondary-foreground: 186 100% 50%;
-  
-  --muted: 220 40% 12%;
-  --muted-foreground: 186 20% 60%;
-  
-  --accent: 186 100% 50%;
-  --accent-foreground: 220 40% 5%;
-  
-  --destructive: 350 100% 60%;
-  --destructive-foreground: 220 40% 5%;
-  
-  --input: 186 50% 20%;
-  --ring: 186 100% 50%;
+  --card: 220 22% 11%;
+  --card-foreground: 140 10% 88%;
+  --card-border: 140 30% 18%;
 
-  --sidebar: 220 40% 6%;
-  --sidebar-foreground: 186 20% 90%;
-  --sidebar-border: 186 50% 15%;
-  --sidebar-primary: 186 100% 50%;
-  --sidebar-primary-foreground: 220 40% 5%;
-  --sidebar-accent: 220 40% 12%;
-  --sidebar-accent-foreground: 186 100% 50%;
-  --sidebar-ring: 186 100% 50%;
+  --popover: 220 22% 11%;
+  --popover-foreground: 140 10% 88%;
+  --popover-border: 140 30% 18%;
+
+  /* Neon Green — matches the bright green on the bot image */
+  --primary: 137 100% 54%;
+  --primary-foreground: 220 18% 6%;
+
+  --secondary: 270 80% 55%;
+  --secondary-foreground: 220 18% 6%;
+
+  --muted: 220 18% 14%;
+  --muted-foreground: 220 10% 55%;
+
+  --accent: 270 80% 55%;
+  --accent-foreground: 220 18% 6%;
+
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 220 18% 6%;
+
+  --input: 220 18% 16%;
+  --ring: 137 100% 54%;
 
   --app-font-sans: 'Space Grotesk', sans-serif;
   --app-font-mono: 'JetBrains Mono', monospace;
-  --radius: 0.25rem; /* sharper edges */
+  --radius: 0.2rem;
 
-  --sidebar-primary-border: hsl(var(--sidebar-primary));
-  --sidebar-accent-border: hsl(var(--sidebar-accent));
   --primary-border: hsl(var(--primary));
   --secondary-border: hsl(var(--secondary));
   --muted-border: hsl(var(--muted));
@@ -112,28 +102,27 @@
 }
 
 .dark {
-  /* Same theme for dark class as it's a dark-only identity */
-  --background: 220 40% 5%;
-  --foreground: 186 20% 90%;
-  --border: 186 50% 15%;
-  --card: 220 40% 7%;
-  --card-foreground: 186 20% 90%;
-  --card-border: 186 50% 15%;
-  --popover: 220 40% 7%;
-  --popover-foreground: 186 20% 90%;
-  --popover-border: 186 50% 15%;
-  --primary: 186 100% 50%;
-  --primary-foreground: 220 40% 5%;
-  --secondary: 220 40% 15%;
-  --secondary-foreground: 186 100% 50%;
-  --muted: 220 40% 12%;
-  --muted-foreground: 186 20% 60%;
-  --accent: 186 100% 50%;
-  --accent-foreground: 220 40% 5%;
-  --destructive: 350 100% 60%;
-  --destructive-foreground: 220 40% 5%;
-  --input: 186 50% 20%;
-  --ring: 186 100% 50%;
+  --background: 220 18% 8%;
+  --foreground: 140 10% 88%;
+  --border: 140 30% 18%;
+  --card: 220 22% 11%;
+  --card-foreground: 140 10% 88%;
+  --card-border: 140 30% 18%;
+  --popover: 220 22% 11%;
+  --popover-foreground: 140 10% 88%;
+  --popover-border: 140 30% 18%;
+  --primary: 137 100% 54%;
+  --primary-foreground: 220 18% 6%;
+  --secondary: 270 80% 55%;
+  --secondary-foreground: 220 18% 6%;
+  --muted: 220 18% 14%;
+  --muted-foreground: 220 10% 55%;
+  --accent: 270 80% 55%;
+  --accent-foreground: 220 18% 6%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 220 18% 6%;
+  --input: 220 18% 16%;
+  --ring: 137 100% 54%;
 }
 
 @layer base {
@@ -141,12 +130,119 @@
     @apply border-border;
   }
 
-  body {
-    @apply font-sans antialiased bg-background text-foreground;
-    /* Add subtle grid background */
-    background-image: linear-gradient(to right, rgba(0, 229, 255, 0.05) 1px, transparent 1px),
-                      linear-gradient(to bottom, rgba(0, 229, 255, 0.05) 1px, transparent 1px);
-    background-size: 40px 40px;
-    background-attachment: fixed;
+  html, body {
+    height: 100%;
   }
+
+  body {
+    @apply font-sans antialiased text-foreground;
+
+    /* ── Steel base ── */
+    background-color: #0d1014;
+
+    /* ── Hexagonal honeycomb grid (matches bot image cells) ── */
+    background-image:
+      /* Honeycomb hex grid via SVG data URI */
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpath d='M28 66L0 50V17L28 1l28 16v33L28 66zM28 100L0 84V51l28-16 28 16v33L28 100z' fill='none' stroke='rgba(255,255,255,0.055)' stroke-width='0.8'/%3E%3C/svg%3E"),
+      /* Metallic vertical sheen bands */
+      repeating-linear-gradient(
+        105deg,
+        transparent 0px,
+        transparent 80px,
+        rgba(255,255,255,0.012) 80px,
+        rgba(255,255,255,0.012) 81px,
+        transparent 81px,
+        transparent 160px
+      ),
+      /* Green atmospheric glow — top-left corner like the image */
+      radial-gradient(ellipse 60% 50% at 15% 20%, rgba(57,255,20,0.07) 0%, transparent 70%),
+      /* Purple atmospheric glow — bottom-right like the image */
+      radial-gradient(ellipse 60% 50% at 85% 80%, rgba(139,0,255,0.07) 0%, transparent 70%),
+      /* Dark gunmetal base gradient */
+      linear-gradient(160deg, #141820 0%, #0d1014 50%, #111318 100%);
+
+    background-attachment: fixed;
+    background-size:
+      56px 100px,
+      160px 100%,
+      100% 100%,
+      100% 100%,
+      100% 100%;
+  }
+}
+
+/* ── Steel panel card ── */
+.steel-card {
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.04) 0%, transparent 50%, rgba(0,0,0,0.2) 100%),
+    linear-gradient(160deg, #1a1f2b 0%, #12161d 50%, #0f131a 100%);
+  border: 1px solid rgba(57,255,20,0.18);
+  box-shadow:
+    0 0 0 1px rgba(57,255,20,0.08),
+    0 0 30px rgba(57,255,20,0.06),
+    inset 0 1px 0 rgba(255,255,255,0.05),
+    inset 0 -1px 0 rgba(0,0,0,0.3);
+  position: relative;
+}
+
+.steel-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpath d='M28 66L0 50V17L28 1l28 16v33L28 66zM28 100L0 84V51l28-16 28 16v33L28 100z' fill='none' stroke='rgba(255,255,255,0.04)' stroke-width='0.8'/%3E%3C/svg%3E");
+  background-size: 28px 50px;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+/* Neon green glow on card bottom border — matches the green frame line on the bot */
+.steel-card::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(57,255,20,0.6), transparent);
+  box-shadow: 0 0 12px rgba(57,255,20,0.5);
+  pointer-events: none;
+}
+
+/* Corner bolt detail — like the corner bolts on the bot image frame */
+.steel-corner::before,
+.steel-corner::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(200,210,220,0.4) 0%, rgba(100,110,120,0.2) 100%);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.steel-corner::before { top: 8px; left: 8px; }
+.steel-corner::after  { top: 8px; right: 8px; }
+
+/* Purple neon glow effect for the secondary accent */
+.purple-glow {
+  text-shadow: 0 0 12px rgba(139,0,255,0.6), 0 0 24px rgba(139,0,255,0.3);
+}
+
+/* Green neon glow for primary text/icons */
+.green-glow {
+  text-shadow: 0 0 12px rgba(57,255,20,0.7), 0 0 28px rgba(57,255,20,0.4);
+  filter: drop-shadow(0 0 6px rgba(57,255,20,0.5));
+}
+
+/* Neon scan line overlay for that CRT/tech feel */
+.scanlines {
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,0.03) 2px,
+    rgba(0,0,0,0.03) 4px
+  );
 }
