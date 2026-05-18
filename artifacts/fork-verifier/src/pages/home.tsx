@@ -53,7 +53,7 @@ export default function Home() {
   });
 
   const form = useForm<FormValues>({
-    resolver: zodResolver(formSchema),
+    resolver: zodResolver(formSchema as any),
     defaultValues: { username: "" },
   });
 
@@ -194,7 +194,7 @@ export default function Home() {
                       <FormField
                         control={form.control}
                         name="username"
-                        render={({ field }) => (
+                        render={({ field: { onBlur: fieldOnBlur, ...fieldProps } }) => (
                           <FormItem>
                             <FormControl>
                               <div className="relative">
@@ -216,10 +216,11 @@ export default function Home() {
                                     e.target.style.boxShadow = `0 0 0 3px ${G08}`;
                                   }}
                                   onBlur={(e) => {
+                                    fieldOnBlur();
                                     e.target.style.border = `1px solid ${G20}`;
                                     e.target.style.boxShadow = "none";
                                   }}
-                                  {...field}
+                                  {...fieldProps}
                                 />
                               </div>
                             </FormControl>
