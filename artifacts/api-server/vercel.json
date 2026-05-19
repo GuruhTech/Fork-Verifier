@@ -1,4 +1,13 @@
 {
   "version": 2,
-  "installCommand": "cd ../.. && pnpm install --frozen-lockfile"
+  "installCommand": "cd ../.. && pnpm install --frozen-lockfile",
+  "buildCommand": "",
+  "functions": {
+    "api/*.ts": {
+      "runtime": "@vercel/node@5.8.2"
+    }
+  },
+  "routes": [
+    { "src": "/(.*)", "dest": "/api/$1" }
+  ]
 }
