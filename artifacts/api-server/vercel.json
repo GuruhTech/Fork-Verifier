@@ -6,8 +6,5 @@
     "api/*.ts": {
       "runtime": "@vercel/node@5.8.2"
     }
-  },
-  "routes": [
-    { "src": "/(.*)", "dest": "/api/$1" }
-  ]
+  }
 }
